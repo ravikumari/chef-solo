@@ -1,0 +1,21 @@
+{
+	"run_list": ["recipe[fmw_jdk::install]",
+		"recipe[fmw_jdk::rng_service]",
+		"recipe[fmw_wls::setup]",
+		"recipe[fmw_wls::install]"
+	],
+	"fmw": {
+		"java_home_dir": "/usr/java/jdk1.8.0_171",
+		"middleware_home_dir": "/opt/oracle/middleware_1221",
+		"weblogic_home_dir": "/opt/oracle/middleware_1221/wlserver",
+		"version": "12.2.1",
+		"tmp_dir": "/root/chef-solo/chef-repo/temp"
+	},
+	"fmw_jdk": {
+		"source_file": "/root/chef-solo/chef-repo/softwares/jdk-8u171-linux-x64.tar.gz"
+	},
+	"fmw_wls": {
+		"source_file": "/root/chef-solo/chef-repo/softwares/fmw_12.2.1.3.0_infrastructure.jar",
+                "install_type": "infra"
+       }
+}

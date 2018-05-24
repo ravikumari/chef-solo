@@ -1,0 +1,31 @@
+
+{
+
+	"run_list": ["recipe[fmw_jdk::install]",
+                "recipe[fmw_jdk::rng_service]",
+		"recipe[fmw_wls::setup]",
+		"recipe[fmw_wls::install]",
+		"recipe[fmw_domain::domain]",
+		"recipe[fmw_domain::nodemanager]",
+		"recipe[fmw_domain::adminserver]"
+	],
+	"fmw": {
+		"java_home_dir": "/usr/java/jdk1.8.0_171",
+		"middleware_home_dir": "/opt/oracle/middleware_1221",
+		"weblogic_home_dir": "/opt/oracle/middleware_1221/wlserver",
+		"version": "12.2.1"
+	},
+	"fmw_jdk": {
+		"source_file": "/root/chef-solo/chef-repo/softwares/jdk-8u171-linux-x64.tar.gz"
+	},
+	"fmw_wls": {
+		"source_file": "/root/chef-solo/chef-repo/softwares/wls1036_generic.jar"
+	},
+	"fmw_domain": {
+		"databag_key": "DEV_WLS1",
+		"domains_dir": "/opt/oracle/middleware_1221/user_projects/domains",
+		"apps_dir": "/opt/oracle/middleware_1221/user_projects/applications",
+		"nodemanager_listen_address": "35.153.179.5",
+		"nodemanager_port": 5556
+	}
+}
